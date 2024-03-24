@@ -16,6 +16,7 @@ public class AppParte1 {
         scanner.close();
 
         List<String> nomes = new ArrayList<>(Arrays.asList(entrada.split(",")));
+        nomes.sort((String a, String b) -> a.compareTo(b));
 
         System.out.println(nomes);
 
