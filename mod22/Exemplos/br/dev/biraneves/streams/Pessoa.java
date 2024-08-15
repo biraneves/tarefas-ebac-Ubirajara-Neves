@@ -1,6 +1,7 @@
 package br.dev.biraneves.streams;
 
 import java.util.List;
+import java.util.Objects;
 
 class Pessoa {
 
@@ -56,6 +57,27 @@ class Pessoa {
   @Override
   public String toString() {
     return "[" + id + "; " + nome + "; " + nacionalidade + "; " + idade + "]";
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
+    }
+
+    Pessoa outraPessoa = (Pessoa) obj;
+
+    return id != null ? id.equals(outraPessoa.getId()) && nome.equals(outraPessoa.getNome())
+        : outraPessoa.getId() == null;
+  }
+
+  @Override
+  public int hashCode() {
+    return id != null ? Objects.hash(id, nome) : 0;
   }
 
 }
